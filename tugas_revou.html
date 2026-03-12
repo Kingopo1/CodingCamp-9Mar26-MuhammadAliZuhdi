@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REVOU KU SAYANG WKWKWK</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="iphone-container">
+        <div class="dynamic-island" aria-hidden="true"></div>
+
+        <div class="iphone-screen">
+            <nav class="settings-bar" aria-label="Pengaturan Tema">
+                <div class="color-wrapper" title="Ubah Warna Aksen">
+                    <input type="color" id="accent-picker" value="#007AFF">
+                </div>
+                <button id="theme-toggle" class="btn-icon" aria-label="Ganti Mode Gelap/Terang">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </nav>
+
+            <header class="dashboard-header">
+                <div class="time-container">
+                    <time id="current-time" datetime="2026-03-10">00:00</time>
+                    <p id="current-date">Senin, 1 Januari</p>
+                </div>
+                <section class="user-greeting">
+                    <h2 id="greeting-text">Halo,</h2>
+                    <input type="text" id="user-name" placeholder="Nama kamu?" aria-label="Nama Pengguna">
+                </section>
+            </header>
+
+            <main class="scroll-area">
+                
+                <section class="ios-card" aria-labelledby="timer-title">
+                    <h3 id="timer-title" class="visually-hidden">Timer Fokus</h3>
+                    <article class="timer-widget">
+                        <output id="timer-display" class="timer-display">
+                            <span id="timer-minutes">25</span>:<span id="timer-seconds">00</span>
+                        </output>
+                        <div class="timer-controls">
+                            <button id="start-timer" class="btn-pill" aria-label="Mulai"><i class="fas fa-play"></i></button>
+                            <button id="pause-timer" class="btn-pill" aria-label="Jeda"><i class="fas fa-pause"></i></button>
+                            <button id="reset-timer" class="btn-pill" aria-label="Reset"><i class="fas fa-redo"></i></button>
+                        </div>
+                        <fieldset class="timer-settings">
+                            <legend class="visually-hidden">Atur Durasi</legend>
+                            <label for="timer-duration">Durasi:</label>
+                            <input type="number" id="timer-duration" value="25" min="1" max="120">
+                            <span>menit</span>
+                            <button id="apply-timer" class="btn-text">set</button>
+                        </fieldset>
+                    </article>
+                </section>
+
+                <section class="ios-card" aria-labelledby="tasks-title">
+                    <h3 id="tasks-title" class="card-title">Daftar Tugas</h3>
+                    <form id="task-form" class="ios-input-group">
+                        <label for="new-task" class="visually-hidden">Tambah Tugas Baru</label>
+                        <input type="text" id="new-task" placeholder="Apa rencana hari ini?" required>
+                        <button type="submit" class="btn-primary">Tambah Tugas</button>
+                    </form>
+                    <ul id="tasks-container" class="task-list"></ul>
+                </section>
+
+                <section class="ios-card" aria-labelledby="links-title">
+                    <h3 id="links-title" class="card-title">Tautan Cepat</h3>
+                    <nav class="links-grid" id="links-container"></nav>
+                    <form id="link-form" class="link-add-form">
+                        <fieldset>
+                            <legend class="visually-hidden">Tambah Tautan Baru</legend>
+                            <input type="text" id="link-name" placeholder="Nama Situs" required>
+                            <input type="url" id="link-url" placeholder="https://..." required>
+                            <button type="submit" class="btn-primary">Simpan Tautan</button>
+                        </fieldset>
+                    </form>
+                </section>
+
+            </main>
+
+            <footer class="iphone-footer">
+                <div class="home-bar"></div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+/* --- Global & Variables --- */
+:root {
+    --bg-main: #f2f2f7;
+    --card-bg: rgba(255, 255, 255, 0.8);
+    --text-primary: #1c1c1e; 
+    --text-secondary: #8e8e93;
+    --input-bg: rgba(120, 120, 128, 0.12);
+    --accent-color: #007AFF;
+    --safe-area-top: 44px;
+}
+
+[data-theme="dark"] {
+    --bg-main: #000000;
+    --card-bg: rgba(28, 28, 30, 0.9); /* Lebih pekat biar pro */
+    --text-primary: #ffffff !important; 
+    --text-secondary: #aeaeb2;
+    --input-bg: rgba(255, 255, 255, 0.15);
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Plus Jakarta Sans', sans-serif; 
+}
+
+body {
+    background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s ease;
+}
+
+/* --- iPhone Frame --- */
+.iphone-container {
+    width: 375px;
+    height: 812px;
+    background: var(--bg-main);
+    border-radius: 50px;
+    border: 12px solid #1c1c1e;
+    position: relative;
+    box-shadow: 0 50px 100px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+.iphone-screen {
+    height: 100%;
+    padding: var(--safe-area-top) 20px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- SAPU JAGAT SELECTOR (Biar semua teks putih di dark mode) --- */
+#current-time, #current-date, #greeting-text, #user-name, 
+.card-title, h3, label, legend, span, p, output, .timer-display,
+.task-list li, .link-card, .btn-pill {
+    color: var(--text-primary) !important;
+    transition: color 0.3s ease;
+}
+
+/* --- Settings Bar --- */
+.settings-bar {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.color-wrapper {
+    width: 30px; height: 30px; border-radius: 50%;
+    background: conic-gradient(red, yellow, lime, aqua, blue, magenta, red);
+    border: 2px solid var(--text-primary);
+    position: relative;
+}
+
+#accent-picker { position: absolute; opacity: 0; width: 100%; height: 100%; cursor: pointer; }
+
+.btn-icon {
+    background: var(--input-bg);
+    border: none; width: 35px; height: 35px; border-radius: 50%;
+    color: var(--text-primary); cursor: pointer;
+}
+
+/* --- Cards --- */
+.ios-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+/* Fix Label di dalem Timer agar gak ngumpet WKWKWK */
+.timer-settings label, .timer-settings span {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* --- Inputs --- */
+input[type="text"], input[type="url"], input[type="number"] {
+    background: var(--input-bg);
+    border: none; padding: 12px; border-radius: 12px;
+    color: var(--text-primary) !important;
+    width: 100%; outline: none; margin: 5px 0;
+}
+
+input::placeholder { color: var(--text-secondary); }
+
+/* --- Buttons --- */
+.btn-primary {
+    background: var(--accent-color);
+    color: white !important; /* Tombol tetep putih tulisannya */
+    border: none; padding: 14px;
+    border-radius: 12px; font-weight: 600; width: 100%;
+    cursor: pointer; margin-top: 5px;
+}
+
+.btn-pill { 
+    background: var(--input-bg); border: none; padding: 10px 15px; 
+    border-radius: 20px; cursor: pointer;
+}
+
+.scroll-area { overflow-y: auto; flex: 1; scrollbar-width: none; }
+.scroll-area::-webkit-scrollbar { display: none; }
+
+.timer-display { font-size: 2.5rem; font-weight: 700; text-align: center; display: block; margin: 10px 0; }
+.timer-controls { display: flex; gap: 10px; justify-content: center; margin-bottom: 15px; }
+
+.home-bar {
+    width: 130px; height: 5px; background: var(--text-primary);
+    border-radius: 5px; margin: 10px auto; opacity: 0.3;
+}
+
+/* Transisi dasar biar animasinya smooth (nggak kaku) */
+.btn-primary, .btn-icon, .btn-pill, button, .color-wrapper {
+    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Efek saat mouse mengambang di atas tombol (Hover) */
+.btn-primary:hover {
+    filter: brightness(1.1); /* Warnanya jadi sedikit lebih terang */
+    transform: translateY(-2px); /* Tombol sedikit naik */
+    box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3); /* Muncul bayangan */
+}
+
+.btn-icon:hover, .btn-pill:hover {
+    background: rgba(120, 120, 128, 0.25); /* Background jadi lebih kentara */
+    transform: scale(1.05); /* Tombol sedikit membesar */
+}
+
+.color-wrapper:hover {
+    transform: scale(1.1) rotate(15deg); /* Efek muter dikit buat color picker */
+}
+
+/* Efek saat tombol sedang ditekan/diklik (Active / Membal ala iOS) */
+.btn-primary:active, .btn-icon:active, .btn-pill:active, button:active, .color-wrapper:active {
+    transform: scale(0.92) !important; /* Tombol mengecil/membal ke dalam */
+    filter: brightness(0.9); /* Sedikit meredup */
+    box-shadow: none; /* Bayangan hilang saat ditekan */
+}

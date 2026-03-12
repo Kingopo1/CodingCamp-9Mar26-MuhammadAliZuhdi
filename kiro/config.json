@@ -1,0 +1,25 @@
+{
+  "project": {
+    "name": "revou-life-dashboard",
+    "description": "To-Do List Life Dashboard with clock, greeting, focus timer, tasks, and quick links",
+    "version": "1.0.0",
+    "author": "Muhammad Ali Zuhdi"
+  },
+  "files": {
+    "html": "tugas_revou.html",
+    "css": "style.css",
+    "javascript": "app.js"
+  },
+  "features": [
+    "Clock and date display",
+    "Dynamic greeting",
+    "Focus timer",
+    "Task management",
+    "Quick links",
+    "Theme toggle"
+  ],
+  "deployment": {
+    "platform": "GitHub Pages",
+    "entry_point": "tugas_revou.html"
+  }
+}
